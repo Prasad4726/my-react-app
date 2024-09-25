@@ -1,38 +1,208 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  background-color: #008080;
+  padding: 20px;
+  color: white;
+  font-size: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content {
+  margin-top: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.save-segment-btn {
+  background-color: #fff;
+  color: #008080;
+  border: 1px solid #008080;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.save-segment-btn:hover {
+  background-color: #008080;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Sliding Popup Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.popup-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-content {
+  background-color: white;
+  width: 400px;
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px 0 0 10px;
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popup-content.slide-in {
+  transform: translateX(0);
+}
+
+.popup-content.slide-out {
+  transform: translateX(100%);
+}
+
+/* Popup Content Styles */
+.popup-header {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.popup-body {
+  margin-bottom: 20px;
+}
+
+input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.schema-section {
+  margin-bottom: 20px;
+}
+
+.schema-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.user-traits-dot {
+  width: 10px;
+  height: 10px;
+  background-color: green; /* Green color for user traits */
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.group-traits-dot {
+  width: 10px;
+  height: 10px;
+  background-color: red; /* Red color for group traits */
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.schema-select {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+select {
+  width: 85%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.remove-schema-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-schema-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Added margin to push button further away */
+  align-items: center; /* Center the button vertically with the dropdown */
+}
+
+.add-schema-section select {
+  width: calc(100% - 120px); /* Adjusted width to accommodate the smaller button */
+}
+
+.add-schema-btn {
+  background-color: #008080;
+  color: white;
+  border: none;
+  padding: 5px 10px; /* Smaller padding for a smaller button */
+  font-size: 14px; /* Smaller font size */
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px; /* Margin to keep distance from the select dropdown */
+}
+
+.add-schema-btn:hover {
+  background-color: #006666;
+}
+
+/* Footer */
+.popup-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #45a049;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #e60000;
 }
